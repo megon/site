@@ -18,7 +18,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 html {
-  background: url(../images/fundo-laranja-pontilhado.jpg) repeat center top;
+  background: #F9C54B url(../images/fundo-laranja-pontilhado.jpg) repeat center top;
 }
 
 ol, ul {
@@ -28,7 +28,8 @@ ol, ul {
 body {
   color:white;
   font-size:12px;
-  font-family: Georgia,"Times New Roman",Times,serif;
+  font-family: 'Helvetica Neue',Arial,Helvetica,Geneva,sans-serif;
+  font-weight: 100;
 }
 
 body .wrapper {
@@ -50,8 +51,6 @@ h1 {
 
 
 h1.section_title {  
-  font-family: Georgia,"Times New Roman",Times,serif;
-  font-style: italic;
   margin: 25px 0 50px 0;
 }
 
@@ -131,29 +130,27 @@ body #home{
   text-shadow: 2px 2px #FFDF80;
   font-weight: bold;
   line-height: 120px;
-  font-family: 'Helvetica Neue',Arial,Helvetica,Geneva,sans-serif;
+
 }
 
 #home h2 {
   color: #7f1a11;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
   margin: 35px 0 10px;
   text-shadow: 0 1px 0 #FFDF80;
-  font-style: italic;
-  font-family: Georgia,"Times New Roman",Times,serif;
-  font-weight: normal;
+  font-weight: 200;
   word-spacing: 0.1em;
 }
 
 #home a {
-  font-size: 20px;
+  font-size: 18px;
   color: #000;
 }
 
 #home a:hover {
   text-shadow: 0 0 8px rgba(255,255, 255, 2);
-    color: #fff;
+  color: blue;
 }
 
 /********* CLIENTES_AREA **********/
@@ -199,8 +196,9 @@ body #portifolio {
 	/* Portifolio Showcase list */
 	#portifolio_showcase_info p{
 	  padding-top: 5px;
-      word-spacing: 0.1em;
+    word-spacing: 0.1em;
 	  clear:left;
+    font-weight: 200;
 	}
 
 	#portfolio-list {
@@ -267,14 +265,17 @@ body #contato {
 }
 
 #contato h1.section_title {
-  color: #d36707;
+  color: #AC5509;
 }
 
 #contato p {
-  font-size:23px;
+  font-size: 23px;
   color: #000;
   text-shadow: 0 1px 1px white;
   display: block;
+  letter-spacing: 1px;
+  font-weight: 300;
+  line-height: 33px;
 }
 
 #contato a {
@@ -320,3 +321,58 @@ body #footer {
   text-shadow: 0 0px 1px #f1f1f1;
   font-size: 9px;
 }
+
+/********* EFFETCS **********/
+.animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}.animated.hinge{-webkit-animation-duration:2s;-moz-animation-duration:2s;-ms-animation-duration:2s;-o-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  } 100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
