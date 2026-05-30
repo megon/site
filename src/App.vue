@@ -161,7 +161,7 @@
           </div>
 
           <a :href="mailtoHref" class="inline-flex items-center justify-center rounded-md bg-[#1C53B7] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#2B6EEA]">
-            contato@megon.com.br
+            {{ copy.contact.cta }}
           </a>
         </div>
       </section>
@@ -241,8 +241,8 @@ const content = {
     ],
     audience: {
       kicker: 'Para quem',
-      title: 'Para quem recebeu um protótipo e precisa decidir se dá para usar.',
-      body: 'A Megon trabalha com operações, TI, founders, suporte, produto e lideranças de negócio em pequenas empresas que precisam transformar uma boa ideia criada com IA em uma ferramenta confiável.'
+      title: 'Para quem recebeu um protótipo no Slack e agora precisa decidir o que fazer com ele.',
+      body: 'A Megon ajuda quem virou responsável por uma ferramenta criada com IA antes de existir hospedagem, acesso, documentação ou alguém claramente dono dela.'
     },
     services: {
       kicker: 'Serviços',
@@ -252,19 +252,19 @@ const content = {
           step: '01',
           title: 'Revisão antes do lançamento',
           body: 'Olhamos a ferramenta antes de ela entrar em uso e apontamos o que está ok, o que preocupa e o que precisa ser resolvido.',
-          deliverable: 'Uma resposta clara: pode usar, pode usar com ajustes ou ainda não deve ir para o ar.'
+          deliverable: 'Checklist de riscos, próximos ajustes e recomendação clara: usar, ajustar antes ou segurar.'
         },
         {
           step: '02',
           title: 'Lançamento seguro',
           body: 'Ajudamos a colocar a ferramenta no lugar certo, com acesso controlado, configurações organizadas e instruções para o time.',
-          deliverable: 'Uma ferramenta interna pronta para ser usada pela empresa.'
+          deliverable: 'Repositório organizado, domínio configurado, acesso controlado, variáveis protegidas e documentação básica.'
         },
         {
           step: '03',
           title: 'Cuidado contínuo',
           body: 'Quando a ferramenta passa a fazer parte da rotina, seguimos por perto para corrigir, atualizar e orientar melhorias.',
-          deliverable: 'Alguém acompanhando a ferramenta para ela não virar um problema esquecido.'
+          deliverable: 'Correções, pequenas melhorias, orientação para o time e um ponto de contato quando algo quebrar.'
         }
       ]
     },
@@ -277,7 +277,8 @@ const content = {
     contact: {
       kicker: 'Próximo passo',
       title: 'Tem uma ferramenta criada com IA esperando uma decisão?',
-      body: 'Vamos entender se ela está pronta para ser usada.'
+      body: 'Conte rapidamente o que foi criado e o que ainda está indefinido. A primeira conversa serve para decidir se vale revisar agora.',
+      cta: 'Agendar uma conversa'
     }
   },
   en: {
@@ -331,8 +332,8 @@ const content = {
     ],
     audience: {
       kicker: 'Who it is for',
-      title: 'For the person who received a prototype and needs to decide if it can be used.',
-      body: 'Megon works with operations, IT, founders, support, product, and business leads at small companies that need to turn a good AI-built idea into a dependable internal tool.'
+      title: 'For the person who received a prototype in Slack and now needs to decide what to do with it.',
+      body: 'Megon helps the person who became responsible for an AI-built tool before it had hosting, access control, documentation, or a clear owner.'
     },
     services: {
       kicker: 'Services',
@@ -342,19 +343,19 @@ const content = {
           step: '01',
           title: 'Pre-launch review',
           body: 'We look at the tool before people start using it and point out what is fine, what is risky, and what needs to be fixed.',
-          deliverable: 'A clear answer: ready, ready with changes, or not ready yet.'
+          deliverable: 'Risk checklist, next fixes, and a clear recommendation: use it, adjust it first, or hold it back.'
         },
         {
           step: '02',
           title: 'Safe launch',
           body: 'We help put the tool in the right place, with controlled access, organized settings, and instructions for the team.',
-          deliverable: 'An internal tool ready for the company to use.'
+          deliverable: 'Organized repository, configured domain, controlled access, protected variables, and basic documentation.'
         },
         {
           step: '03',
           title: 'Ongoing care',
           body: 'When the tool becomes part of the routine, we stay close to fix, update, and guide small improvements.',
-          deliverable: 'Someone keeping an eye on the tool so it does not become a forgotten problem.'
+          deliverable: 'Fixes, small improvements, team guidance, and one point of contact when something breaks.'
         }
       ]
     },
@@ -367,7 +368,8 @@ const content = {
     contact: {
       kicker: 'Next step',
       title: 'Have an AI-built tool waiting for a decision?',
-      body: "Let's understand if it is ready to use."
+      body: "Share what was built and what is still unclear. The first conversation is just to decide whether it is worth reviewing now.",
+      cta: 'Book a conversation'
     }
   }
 }
@@ -375,10 +377,13 @@ const content = {
 const copy = computed(() => content[locale.value])
 const mailtoHref = computed(() => {
   const subject = locale.value === 'pt-BR'
-    ? 'Launch Readiness Check'
-    : 'Launch Readiness Check'
+    ? 'Conversa sobre ferramenta criada com IA'
+    : 'Conversation about an AI-built tool'
+  const body = locale.value === 'pt-BR'
+    ? 'Oi, Megon. Temos uma ferramenta criada com IA e queremos entender se ela esta pronta para uso. Contexto rapido:'
+    : 'Hi Megon. We have an AI-built tool and want to understand if it is ready to use. Quick context:'
 
-  return `mailto:contato@megon.com.br?subject=${encodeURIComponent(subject)}`
+  return `mailto:contato@megon.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 })
 
 function setLocale(nextLocale) {
