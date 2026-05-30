@@ -46,7 +46,7 @@
             </p>
 
             <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a :href="mailtoHref" class="inline-flex items-center justify-center rounded-md bg-[#1C53B7] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#2B6EEA]">
+              <a href="https://form.typeform.com/to/qxgPnGmj" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md bg-[#1C53B7] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#2B6EEA]">
                 {{ copy.hero.primaryCta }}
               </a>
               <a href="#services" class="inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:border-white/35 hover:bg-white/5">
@@ -160,7 +160,7 @@
             <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">{{ copy.contact.body }}</p>
           </div>
 
-          <a :href="mailtoHref" class="inline-flex items-center justify-center rounded-md bg-[#1C53B7] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#2B6EEA]">
+          <a href="https://form.typeform.com/to/qxgPnGmj" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md bg-[#1C53B7] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#2B6EEA]">
             {{ copy.contact.cta }}
           </a>
         </div>
@@ -375,17 +375,6 @@ const content = {
 }
 
 const copy = computed(() => content[locale.value])
-const mailtoHref = computed(() => {
-  const subject = locale.value === 'pt-BR'
-    ? 'Conversa sobre ferramenta criada com IA'
-    : 'Conversation about an AI-built tool'
-  const body = locale.value === 'pt-BR'
-    ? 'Oi, Megon. Temos uma ferramenta criada com IA e queremos entender se ela esta pronta para uso. Contexto rapido:'
-    : 'Hi Megon. We have an AI-built tool and want to understand if it is ready to use. Quick context:'
-
-  return `mailto:contato@megon.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-})
-
 function setLocale(nextLocale) {
   locale.value = nextLocale
   const nextPath = nextLocale === 'en' ? '/en/' : '/'
