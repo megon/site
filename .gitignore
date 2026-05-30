@@ -1,6 +1,9 @@
 .DS_Store
 node_modules
 /dist
+.yarn/cache
+.yarn/global
+.yarn/install-state.gz
 
 # local env files
 .env.local
@@ -11,6 +14,7 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+firepit-log.txt
 
 # Editor directories and files
 .idea
