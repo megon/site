@@ -11,12 +11,13 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "serve": "vite --host 0.0.0.0",
-    "build": "vite build && node scripts/postbuild-seo.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.js --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "deploy": "firebase deploy"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
+    "@vue/server-renderer": "^3.5.35",
     "vue": "^3.5.35"
   },
   "devDependencies": {
