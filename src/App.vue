@@ -172,18 +172,28 @@
 <script setup>
 import { computed, ref, watchEffect } from 'vue'
 
+const props = defineProps({
+  initialLocale: {
+    type: String,
+    default: ''
+  }
+})
+
 const languageOptions = [
   { value: 'pt-BR', label: 'PT' },
   { value: 'en', label: 'EN' }
 ]
 
-const locale = ref(window.location.pathname.startsWith('/en') ? 'en' : 'pt-BR')
+const browserLocale = typeof window !== 'undefined' && window.location.pathname.startsWith('/en')
+  ? 'en'
+  : 'pt-BR'
+const locale = ref(props.initialLocale || browserLocale)
 
 const content = {
   'pt-BR': {
     meta: {
       title: 'Megon | Ferramentas internas criadas com IA, prontas para uso',
-      description: 'A Megon ajuda pequenas empresas a transformar protótipos criados com IA em ferramentas internas prontas para o dia a dia.'
+      description: 'A Megon ajuda pequenas empresas a transformar protótipos criados com IA em ferramentas internas seguras, organizadas e fáceis de manter.'
     },
     nav: {
       problem: 'Problema',
@@ -273,7 +283,7 @@ const content = {
   en: {
     meta: {
       title: 'Megon | AI-built internal tools, ready for everyday use',
-      description: 'Megon helps small companies turn AI-built prototypes into internal tools that are ready for everyday use.'
+      description: 'Megon helps small companies turn AI-built prototypes into secure, organized, maintainable internal tools.'
     },
     nav: {
       problem: 'Problem',
@@ -375,12 +385,16 @@ function setLocale(nextLocale) {
   locale.value = nextLocale
   const nextPath = nextLocale === 'en' ? '/en/' : '/'
 
-  if (window.location.pathname !== nextPath) {
+  if (typeof window !== 'undefined' && window.location.pathname !== nextPath) {
     window.history.pushState({}, '', nextPath)
   }
 }
 
 watchEffect(() => {
+  if (typeof document === 'undefined') {
+    return
+  }
+
   document.documentElement.lang = locale.value
   document.title = copy.value.meta.title
 

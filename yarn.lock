@@ -770,7 +770,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/server-renderer@npm:3.5.35":
+"@vue/server-renderer@npm:3.5.35, @vue/server-renderer@npm:^3.5.35":
   version: 3.5.35
   resolution: "@vue/server-renderer@npm:3.5.35"
   dependencies:
@@ -1133,6 +1133,7 @@ __metadata:
   dependencies:
     "@tailwindcss/vite": "npm:^4.3.0"
     "@vitejs/plugin-vue": "npm:^6.0.7"
+    "@vue/server-renderer": "npm:^3.5.35"
     tailwindcss: "npm:^4.3.0"
     vite: "npm:^7.3.3"
     vue: "npm:^3.5.35"
