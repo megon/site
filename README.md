@@ -1,24 +1,30 @@
-# megon-site
+# Megon Site
 
-## Project setup
+Static marketing site for Megon, focused on production support for AI-built internal tools.
+
+## Requirements
+
+- Node.js 24 LTS
+- Yarn 4.12+
+
+If Corepack is available locally:
+
+```sh
+corepack enable
+corepack prepare yarn@4.12.0 --activate
 ```
+
+## Development
+
+```sh
 yarn install
+yarn dev
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Production Build
 
-### Compiles and minifies for production
-```
+```sh
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The Firebase hosting target serves the generated `dist/` directory.
